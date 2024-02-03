@@ -1,0 +1,17 @@
+messages:
+  # 请勿修改
+  msg-verison: 1.0
+  prefix: "&4[&cAlmArenaCore&4] "
+  reload: "&a插件重载成功!"
+  help: "&d插件帮助文档: &bhttps://github.com/ALMikey/AlmArenaCore"
+  actionbar:
+    kill-player: "&c轻松的击败!"
+    killed-by-player: "&c啊...好疼...再来!"
+  message:
+    kill-player: "&c&l已击败 &f&l%player_name%"
+    killed-by-player: "&c&l你被 &f&l%player_name% &c&l击败"
+  title:
+    killer-title: "&c轻松的击败 &f%player_name% &c!"
+    killer-sub: "&5竞技积分 &f&l+5"
+    victim-title: "&c你被 &f%player_name% &c所击败!"
+    victim-sub: "&5竞技积分 &c&l-10"

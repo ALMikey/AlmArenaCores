@@ -1,0 +1,17 @@
+messages:
+  # Do not modify
+  msg-verison: 1.0
+  prefix: "&4[&cAlmArenaCore&4] "
+  reload: "&aReloaded successfully!"
+  help: "&dPlugin help document: &bhttps://github.com/ALMikey/AlmArenaCore"
+  actionbar:
+    kill-player: "&cEasily Defeated!"
+    killed-by-player: "&cAh... so painful... Let's go again!"
+  message:
+    kill-player: "&c&lDefeated &f&l%player_name%"
+    killed-by-player: "&c&lYou have been defeated by &f&l%player_name%"
+  title:
+    killer-title: "&cEasily defeated &f%player_name% &c!"
+    killer-sub: "&5Arena points &f&l+5"
+    victim-title: "&cYou have been defeated by &f%player_name% &c!"
+    victim-sub: "&5Arena points &c&l-10"

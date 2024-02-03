@@ -1,0 +1,29 @@
+# Plugins version Do not modify！
+Version: 1.0.0
+# Language set
+Language: chinese
+
+# 竞技场世界名称
+# This world name
+Arenaworld: "test"
+# PVP 提示消息模块
+# PVP message
+PVP-message:
+  actionbar: true
+  message: true
+  title:
+    enable: true
+    # 是标题淡入的时间（以游戏刻为单位，1秒=20游戏刻）
+    # Title fade in time (in game moments, 1 second=20 game moments)
+    fadeIn: 20
+    # 停留时间
+    # residence time
+    stay: 50
+    # 淡出时间
+    # Fade out time
+    fadeOut: 20
+# 竞技分机制
+# Arena scoring mechanism
+ArenaPoints:
+  win: 5
+  fail: 10
