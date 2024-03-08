@@ -22,7 +22,7 @@ public class ResourceFileManager {
         chineseFile = new File(plugin.getDataFolder(),"messages/chinese.yml");
         englishFile = new File(plugin.getDataFolder(),"messages/english.yml");
         playerData = new File(plugin.getDataFolder(),"playerdata.yml");
-        databaseFile = new File(plugin.getDataFolder(),"playerdata.yml");
+        databaseFile = new File(plugin.getDataFolder(),"database.yml");
 
         // 如果文件不存在...
         if (!chineseFile.exists()){

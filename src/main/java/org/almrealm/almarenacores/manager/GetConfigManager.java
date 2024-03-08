@@ -18,6 +18,7 @@ public class GetConfigManager {
     // 配置文件
     private FileConfiguration config;
     private YamlConfiguration messagesConfig;
+    private YamlConfiguration databaseConfig;
     public GetConfigManager(AlmArenaCores plugin) {
         this.plugin = plugin;
         // 初始化配置文件
@@ -26,13 +27,10 @@ public class GetConfigManager {
         this.config = plugin.getConfig();
         // 获取语言文件
         getMessage();
+        getDatabase();
     }
-    public String getString(String key) {
-        return config.getString(key);
-    }
-    public int getInt(String key) {
-        return config.getInt(key);
-    }
+    public String getString(String key) { return config.getString(key); }
+    public int getInt(String key) { return config.getInt(key); }
     public boolean getBoolean(String key) {
         return config.getBoolean(key);
     }
@@ -61,4 +59,14 @@ public class GetConfigManager {
         String msglist = prefix+msg;
         return ChatColor.translateAlternateColorCodes('&', msglist);
     }
+
+    public void getDatabase(){
+        File dataFile = new File(plugin.getDataFolder(), "database.yml");
+        databaseConfig = YamlConfiguration.loadConfiguration(dataFile);
+    }
+
+    public String getDataConfig(String key){
+        return databaseConfig.getString(key);
+    }
+
 }

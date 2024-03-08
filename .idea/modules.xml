@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AlmArenaCores.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AlmArenaCores.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.almrealm.AlmArenaCores.main.iml" filepath="$PROJECT_DIR$/.idea/modules/org.almrealm.AlmArenaCores.main.iml" />
     </modules>
   </component>
 </project>

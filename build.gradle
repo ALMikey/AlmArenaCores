@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'org.almrealm'
-version = '1.0.1'
+version = 'bate-1.0.1'
 
 repositories {
     mavenCentral()
@@ -18,14 +18,25 @@ repositories {
 }
 
 dependencies {
+    // Spigot API
     compileOnly "org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT"
+    // PlaceholderAPI
     repositories {
         maven {
-            url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+            url 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
         }
     }
     dependencies {
         compileOnly 'me.clip:placeholderapi:2.11.5'
+    }
+    // ModelEngine
+    repositories {
+        maven {
+            url 'https://mvn.lumine.io/repository/maven-public/'
+        }
+    }
+    dependencies {
+        compileOnly 'com.ticxo.modelengine:ModelEngine:R4.0.4'
     }
 }
 

@@ -1,7 +1,8 @@
 package org.almrealm.almarenacores;
 
-import org.almrealm.almarenacores.command.Command;
+import org.almrealm.almarenacores.command.PluginCommand;
 import org.almrealm.almarenacores.listener.PlayerArenaListener;
+import org.almrealm.almarenacores.manager.DataStorageManager;
 import org.almrealm.almarenacores.manager.GetConfigManager;
 import org.almrealm.almarenacores.manager.RankPointsManager;
 import org.almrealm.almarenacores.manager.ResourceFileManager;
@@ -24,6 +25,7 @@ public final class AlmArenaCores extends JavaPlugin {
         GetConfigManager getConfigManager = new GetConfigManager(this);
         ResourceFileManager resourceFileManager = new ResourceFileManager(this);
         RankPointsManager rankPointsManager = new RankPointsManager(this);
+        DataStorageManager dataStorageManager = new DataStorageManager(this);
 
         // Resource File Manager
         resourceFileManager.saveFile();
@@ -32,7 +34,8 @@ public final class AlmArenaCores extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerArenaListener(this),this);
 
         // Command
-        getServer().getPluginCommand("almarenacore").setExecutor(new Command(this));
+        getServer().getPluginCommand("almarenacore").setExecutor(new PluginCommand(this));
+
 
     }
 
