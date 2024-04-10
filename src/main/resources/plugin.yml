@@ -7,6 +7,9 @@ description: Plug-in from ALMikey author!
 website: https://afdian.net/a/ALMikey
 softdepend:
   - PlaceholderAPI
+  - Oraxen
+  - ItemsAdder
+  - ModelEngine
 commands:
   almarenacore:
     description: "unknown..."

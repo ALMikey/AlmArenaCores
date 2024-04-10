@@ -7,12 +7,12 @@ import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.almrealm.almarenacores.AlmArenaCores;
 import org.almrealm.almarenacores.manager.GetConfigManager;
-import org.almrealm.almarenacores.manager.RankPointsManager;
+import org.almrealm.almarenacores.storage.StorageMySQL;
+import org.almrealm.almarenacores.storage.StorageYAML;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,7 +21,6 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 public class PlayerArenaListener implements Listener {
     private final AlmArenaCores plugin;
     public PlayerArenaListener(AlmArenaCores plugin) { this.plugin = plugin; }
-
 
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
@@ -37,6 +36,9 @@ public class PlayerArenaListener implements Listener {
 
             World world = Bukkit.getWorld(ArenaWorld);
 
+            StorageYAML yamlSave = new StorageYAML(plugin);
+            StorageMySQL mysqlSave = new StorageMySQL(plugin);
+
             // 获取玩家当前位置的坐标
             double x = victim.getLocation().getX();
             double y = victim.getLocation().getY();
@@ -48,10 +50,20 @@ public class PlayerArenaListener implements Listener {
 
                 sendKillMessage(killer, victim);
 
-                RankPointsManager.getInstance(plugin).
-                        addPoints(killer, gcm.getInt("ArenaPoints.win"));
-                RankPointsManager.getInstance(plugin).
-                        removePoints(victim, gcm.getInt("ArenaPoints.fial"));
+                //RankPointsManager.getInstance(plugin).
+                //        addPoints(killer, gcm.getInt("ArenaPoints.win"));
+                //RankPointsManager.getInstance(plugin).
+                //        removePoints(victim, gcm.getInt("ArenaPoints.fial"));
+
+                if (gcm.getDataConfig("data-storage-method").equalsIgnoreCase("MySQL")){
+                    // Mysql
+                    mysqlSave.addPointsAsync(killer, gcm.getInt("ArenaPoints.win"));
+                    mysqlSave.removePointsAsync(victim, gcm.getInt("ArenaPoints.fial"));
+                }else if (gcm.getDataConfig("data-storage-method").equalsIgnoreCase("YAML")) {
+                    // YAML
+                    yamlSave.addPoints(killer, gcm.getInt("ArenaPoints.win"));
+                    yamlSave.removePoints(victim, gcm.getInt("ArenaPoints.fial"));
+                }
 
                 // Spawn a new entity
                 ArmorStand entity = location.getWorld().spawn(location, ArmorStand.class, (armorStand) -> {
@@ -72,6 +84,7 @@ public class PlayerArenaListener implements Listener {
                     entity.remove();
                 }, (long) (activeModel.getBlueprint().getAnimations().get("spawn").getLength()*20));
 
+                sendKillMessage(killer,victim);
             }
 
         }

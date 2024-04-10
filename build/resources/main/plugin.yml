@@ -1,5 +1,5 @@
 name: AlmArenaCores
-version: 'bate-1.0.1'
+version: 'bate-1.1.0'
 main: org.almrealm.almarenacores.AlmArenaCores
 api-version: '1.20'
 author: ALMikey
@@ -7,6 +7,9 @@ description: Plug-in from ALMikey author!
 website: https://afdian.net/a/ALMikey
 softdepend:
   - PlaceholderAPI
+  - Oraxen
+  - ItemsAdder
+  - ModelEngine
 commands:
   almarenacore:
     description: "unknown..."

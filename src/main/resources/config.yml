@@ -29,5 +29,4 @@ ArenaPoints:
   fail: 10
 
 ModelEngine:
-  model-1:
-  model-2:
+  model-1: "132"

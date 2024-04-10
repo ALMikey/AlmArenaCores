@@ -4,6 +4,7 @@ import org.almrealm.almarenacores.AlmArenaCores;
 import org.almrealm.almarenacores.manager.DataStorageManager;
 import org.almrealm.almarenacores.manager.GetConfigManager;
 import org.almrealm.almarenacores.manager.ResourceFileManager;
+import org.almrealm.almarenacores.storage.StorageMySQL;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -37,13 +38,26 @@ public class PluginCommand implements CommandExecutor, TabExecutor {
             sender.sendMessage(gcm.getMsgPrefix("help"));
             return true;
         }
-        if (args[0].equalsIgnoreCase("modelengine")){
-            sender.sendMessage(gcm.getMsgPrefix("help"));
+        if (args[0].equalsIgnoreCase("mysql")){
+
             return true;
         }
         if (args[0].equalsIgnoreCase("debug")){
 
-            sender.sendMessage("##### 数据存储 #####");
+            sender.sendMessage("—————— Config ——————");
+            sender.sendMessage(gcm.getString("Version"));
+            sender.sendMessage(gcm.getString("Language"));
+            sender.sendMessage(gcm.getString("Arenaworld"));
+            sender.sendMessage(gcm.getString("PVP-message.actionbar"));
+            sender.sendMessage(gcm.getString("PVP-message.message"));
+            sender.sendMessage(gcm.getString("PVP-message.title.enable"));
+            sender.sendMessage(gcm.getString("PVP-message.title.fadeIn"));
+            sender.sendMessage(gcm.getString("PVP-message.title.stay"));
+            sender.sendMessage(gcm.getString("PVP-message.title.fadeOut"));
+            sender.sendMessage(gcm.getString("ArenaPoints.win"));
+            sender.sendMessage(gcm.getString("ArenaPoints.fail"));
+            sender.sendMessage(" ");
+            sender.sendMessage("—————— 数据存储 ——————");
             sender.sendMessage(gcm.getDataConfig("data-storage-method"));
             sender.sendMessage(gcm.getDataConfig("MySQL.host"));
             sender.sendMessage(gcm.getDataConfig("MySQL.port"));
@@ -51,11 +65,10 @@ public class PluginCommand implements CommandExecutor, TabExecutor {
             sender.sendMessage(gcm.getDataConfig("MySQL.password"));
             sender.sendMessage(gcm.getDataConfig("MySQL.database"));
             sender.sendMessage(gcm.getDataConfig("MySQL.table"));
-            sender.sendMessage("###############");
             sender.sendMessage(" ");
-            sender.sendMessage("##### ModelEngine #####");
+            sender.sendMessage("————— ModelEngine —————");
             sender.sendMessage(gcm.getString("ModelEngine.model-1"));
-            sender.sendMessage("###############");
+            sender.sendMessage("————————————————————");
 
             return true;
         }
@@ -71,6 +84,7 @@ public class PluginCommand implements CommandExecutor, TabExecutor {
             tabCompletions.add("reload");
             tabCompletions.add("help");
             tabCompletions.add("debug");
+            tabCompletions.add("mysql");
         }
 
         return tabCompletions;
